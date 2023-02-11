@@ -9,8 +9,10 @@ export function increment(binaryArgs: StaticArray<u8>): StaticArray<u8> {
 
   const counterKey = new Args().add('counter');
   const incrementValue = new Args(binaryArgs).nextU32().expect('Increment value is invalid or missing');
+  if (!Storage.has(counterKey)) {
+    Storage.set(counterKey, new Args().add<u32>(0));
+  }
   const storeValue = Storage.get(counterKey).nextU32();
-  
   if (storeValue.isErr()) {
     Storage.set(counterKey, new Args().add(incrementValue));
   }
