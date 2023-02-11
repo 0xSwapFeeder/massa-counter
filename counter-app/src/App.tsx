@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import massa from './massa-logo.png';
-import { MassaDappCore } from './MassaDappExample';
 import Counter from './Counter';
 
 const App: React.FC = () => {

@@ -1,7 +1,5 @@
 import { Args, Client, ClientFactory, DefaultProviderUrls, IAccount } from '@massalabs/massa-web3';
 import { useEffect, useState } from 'react';
-import { triggerValue } from '../../counter-sc/assembly/contracts/main';
-import { waitFor } from '@testing-library/react';
 
 const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
@@ -49,7 +47,7 @@ function Counter() {
                 continue;
             }
             if (event != undefined && event[0]) {
-                console.log(event[0]);
+                console.log(event);
                 return event[0].data;
             }
             loopCounter++;
