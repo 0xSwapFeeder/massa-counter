@@ -9,7 +9,7 @@ const baseAccount = {
     address: 'A1231h17jYujF2XdScmJu5hC2LRvmcckCQtRNhte3NDy9fTx9z1s',
 } as IAccount;
 
-const sc_addr = 'A1nb8okYeruyU56aU4YnDpDJdNSrrnKcdk1x6eSWsmRRQhgLU5R';
+const sc_addr = 'A1Y7tLTkFJMaiQLuVqZFMW3Vv4F451fJ8s1xwfFX5zL4Nrq7X7w';
 
 function Counter() {
     const [web3client, setWeb3client] = useState<Client | null>(null);
@@ -33,7 +33,6 @@ function Counter() {
         let event;
         while (loopCounter < 50) {
             try {
-                console.log(`try number '${loopCounter}'.`);
                 event = await web3client?.smartContracts().getFilteredScOutputEvents({
                     emitter_address: null,
                     start: null,
@@ -90,7 +89,7 @@ function Counter() {
 
     return (
         <div>
-            <div>Total: {total ?? 'Counter value = 0'}</div>
+            <div>Total: {total ?? "Press the 'TriggerValue' button to get the actual value."}</div>
             <button onClick={async () => await funcIncrement(1)}>Increment</button>
             {web3client ? (
                 <button
